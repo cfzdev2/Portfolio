@@ -304,3 +304,27 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     background-color: var(--bg-dark);
 }
+
+.navbar {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: var(--bg-dark);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+    text-decoration: none;
+    letter-spacing: -0.03em;
+}
+.logo span {
+    color: var(--accent); /* Ten sam niebieski, który masz na przyciskach */
+}
