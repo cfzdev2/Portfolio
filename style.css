@@ -64,23 +64,22 @@ section {
 }
 
 /* ==========================================================================
-   2. NAWIGACJA (NAVBAR) - Zgodna z {3F8374F3-E8E2-435C-9A02-71C369A1DA34}.png
+   2. NAWIGACJA (NAVBAR) - Poprawiona, elementy rozdzielone na boki
    ========================================================================== */
 .navbar {
     padding: 16px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    background-color: rgba(15, 23, 42, 0.9); /* Delikatne przezroczyste tło */
-    backdrop-filter: blur(12px);             /* Modny efekt rozmycia tła za paskiem */
+    background-color: rgba(15, 23, 42, 0.9); /* Półprzezroczyste tło */
+    backdrop-filter: blur(12px);             /* Rozmycie tła modern glassmorphism */
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-.nav-container {
+.navbar-flex {
     display: flex;
-    justify-content: center; /* Centrowanie grupy elementów */
+    justify-content: space-between; /* Logo z lewej strony, przycisk z prawej */
     align-items: center;
-    gap: 60px;               /* Idealny odstęp między linkami a centralnym logo */
 }
 
 .logo {
@@ -100,29 +99,35 @@ section {
     color: var(--accent);
 }
 
-.nav-link {
-    color: var(--text-muted);
+/* Nowy minimalistyczny przycisk dopasowany do prawej strony paska */
+.btn-nav {
+    color: var(--text-main);
     text-decoration: none;
     font-weight: 500;
-    font-size: 0.95rem;
-    letter-spacing: -0.01em;
-    transition: color 0.2s ease;
+    font-size: 0.9rem;
+    padding: 8px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Subtelna ramka */
+    border-radius: 6px;
+    background-color: transparent;
+    transition: all 0.2s ease;
 }
 
-.nav-link:hover {
-    color: var(--text-main); /* Zmiana koloru na jasny po najechaniu */
+.btn-nav:hover {
+    background-color: rgba(255, 255, 255, 0.05); /* Lekkie podświetlenie tła */
+    border-color: var(--accent);                 /* Zmiana koloru ramki na Twój błękit */
 }
 
-/* Dostosowanie paska dla mniejszych ekranów telefonicznych */
+/* RWD dla mniejszych ekranów mobilnych */
 @media (max-width: 480px) {
-    .nav-container {
-        gap: 30px; 
+    .navbar {
+        padding: 12px 0;
     }
     .logo {
         font-size: 1.3rem;
     }
-    .nav-link {
+    .btn-nav {
         font-size: 0.85rem;
+        padding: 6px 14px;
     }
 }
 
