@@ -21,6 +21,7 @@
 
 html {
     scroll-behavior: smooth; /* Płynne przewijanie do sekcji */
+    scroll-padding-top: 90px; /* Zapobiega zasłanianiu nagłówków przez przyklejony navbar */
 }
 
 body {
@@ -63,7 +64,70 @@ section {
 }
 
 /* ==========================================================================
-   2. PRZYCISKI (BUTTONS)
+   2. NAWIGACJA (NAVBAR) - Zgodna z {3F8374F3-E8E2-435C-9A02-71C369A1DA34}.png
+   ========================================================================== */
+.navbar {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: rgba(15, 23, 42, 0.9); /* Delikatne przezroczyste tło */
+    backdrop-filter: blur(12px);             /* Modny efekt rozmycia tła za paskiem */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: center; /* Centrowanie grupy elementów */
+    align-items: center;
+    gap: 60px;               /* Idealny odstęp między linkami a centralnym logo */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+    text-decoration: none;
+    letter-spacing: -0.03em;
+    transition: transform 0.2s ease;
+}
+
+.logo:hover {
+    transform: scale(1.02);
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--text-main); /* Zmiana koloru na jasny po najechaniu */
+}
+
+/* Dostosowanie paska dla mniejszych ekranów telefonicznych */
+@media (max-width: 480px) {
+    .nav-container {
+        gap: 30px; 
+    }
+    .logo {
+        font-size: 1.3rem;
+    }
+    .nav-link {
+        font-size: 0.85rem;
+    }
+}
+
+/* ==========================================================================
+   3. PRZYCISKI (BUTTONS)
    ========================================================================== */
 .btn {
     display: inline-block;
@@ -100,7 +164,7 @@ section {
 }
 
 /* ==========================================================================
-   3. HERO SECTION (NAGŁÓWEK STRONY)
+   4. HERO SECTION (NAGŁÓWEK STRONY)
    ========================================================================== */
 .hero {
     padding: 120px 0 80px 0;
@@ -130,7 +194,7 @@ section {
 }
 
 /* ==========================================================================
-   4. PORTFOLIO SECTION
+   5. PORTFOLIO SECTION
    ========================================================================== */
 .portfolio {
     background-color: rgba(255, 255, 255, 0.01);
@@ -162,8 +226,8 @@ section {
     margin-bottom: 20px;
     width: 100%;
     height: 220px;
-    object-fit: cover; /* Zapewnia ładne docięcie grafik */
-    background-color: var(--bg-dark); /* Tło ratunkowe przed załadowaniem foto */
+    object-fit: cover;
+    background-color: var(--bg-dark);
 }
 
 .project-card h3 {
@@ -179,7 +243,69 @@ section {
 }
 
 /* ==========================================================================
-   5. HOW IT WORKS SECTION (JAK DZIAŁAM)
+   6. TESTIMONIALS SECTION (SEKCJA OPINII)
+   ========================================================================== */
+.testimonials {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.005);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+}
+
+.testimonial-card {
+    background-color: var(--bg-card);
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-2px);
+}
+
+.testimonial-stars {
+    color: #f59e0b; /* Elegancki złoty odcień gwiazdek */
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+}
+
+.testimonial-text {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 24px;
+}
+
+.testimonial-author {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 16px;
+}
+
+.author-name {
+    display: block;
+    font-weight: 600;
+    color: var(--text-main);
+    font-size: 1rem;
+}
+
+.author-company {
+    display: block;
+    color: var(--accent);
+    font-size: 0.85rem;
+    margin-top: 2px;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   7. HOW IT WORKS SECTION (JAK DZIAŁAM)
    ========================================================================== */
 .how-it-works {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -231,7 +357,7 @@ section {
 }
 
 /* ==========================================================================
-   6. CONTACT SECTION (FORMULARZ)
+   8. CONTACT SECTION (FORMULARZ)
    ========================================================================== */
 .contact {
     background-color: var(--bg-card);
@@ -275,7 +401,7 @@ section {
 
 .contact-form textarea {
     height: 150px;
-    resize: vertical; /* Pozwala klientowi rozciągać tylko w pionie */
+    resize: vertical;
 }
 
 .contact-form .btn {
@@ -294,7 +420,7 @@ section {
 }
 
 /* ==========================================================================
-   7. FOOTER (STOPKA)
+   9. FOOTER (STOPKA)
    ========================================================================== */
 footer {
     text-align: center;
@@ -303,28 +429,4 @@ footer {
     font-size: 0.9rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     background-color: var(--bg-dark);
-}
-
-.navbar {
-    padding: 20px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    background-color: var(--bg-dark);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-main);
-    text-decoration: none;
-    letter-spacing: -0.03em;
-}
-.logo span {
-    color: var(--accent); /* Ten sam niebieski, który masz na przyciskach */
 }
